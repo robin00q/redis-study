@@ -18,6 +18,11 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // https://docs.spring.io/spring-boot/docs/current/reference/html/dependency-versions.html
+    // 3.8.0
+    implementation("redis.clients:jedis")
+
 }
 
 tasks.named('test') {
