@@ -42,7 +42,6 @@ public class PageVisitTest {
 
     @Test
     void 날짜_사이의_순방문자수_조회() {
-        int userSeq = 1;
         List<LocalDate> dates = Arrays.asList(
                 LocalDate.of(2022, 1, 1),
                 LocalDate.of(2022, 1, 2),
@@ -50,10 +49,11 @@ public class PageVisitTest {
         );
 
         dates.forEach(date -> pageVisit.deletePVUV(date));
-        dates.forEach(date -> pageVisit.visitAtDate(date, userSeq));
+        dates.forEach(date -> pageVisit.visitAtDate(date, 1));
+        dates.forEach(date -> pageVisit.visitAtDate(date, 2));
 
         Long betweenUvCount = pageVisit.getBetweenUvCount(LocalDate.of(2022, 1, 1), LocalDate.of(2022, 1, 3));
-        assertThat(betweenUvCount).isEqualTo(1);
+        assertThat(betweenUvCount).isEqualTo(2);
     }
 
 
